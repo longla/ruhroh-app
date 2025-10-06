@@ -15,27 +15,26 @@ This file breaks down the development work for the Ruhroh application into small
 
 *   [ ] Setup Express server
 *   [ ] Database migration setup
-*   [ ] Implement user authentication (signup, login)
-*   [ ] Implement user profile management
-*   [ ] Implement friend request system
-*   [ ] Implement "ruhroh" posting and feed generation
-*   [ ] Implement reactions
-*   [ ] Implement weekly crown awarding
-*   [ ] Implement real-time notifications with Socket.io
+*   [ ] Implement user authentication (signup, login) for both sitters and business owners.
+*   [ ] Implement sitter profile management (rates, discounts).
+*   [ ] Implement pet profile management.
+*   [ ] Implement pet sitting request creation and management.
+*   [ ] Implement request assignment to sitters.
+*   [ ] Implement sitter response to requests (accept/decline).
+*   [ ] Implement dashboard APIs for business owner and sitters.
 
-## 3. Frontend (React Native)
+## 3. Frontend (Web Application)
 
-*   [ ] Setup React Native project
-*   [ ] Implement navigation
-*   [ ] Implement login and signup screens
-*   [ ] Implement user profile screen
-*   [ ] Implement friends list and friend request management screens
-*   [ ] Implement home feed screen
-*   [ ] Implement "ruhroh" creation screen
-*   [ ] Implement real-time notifications
+*   [ ] Setup frontend project (e.g., with Create React App).
+*   [ ] Implement navigation (routing).
+*   [ ] Implement login and signup pages.
+*   [ ] Implement business owner dashboard.
+*   [ ] Implement sitter dashboard.
+*   [ ] Implement pet profile management pages.
+*   [ ] Implement request creation and management pages.
 
 ## 4. Deployment
 
-*   [ ] Setup production database
-*   [ ] Deploy backend to cloud provider
-*   [ ] Build and release mobile app
+*   [ ] Setup production database.
+*   [ ] Deploy backend to a cloud provider (e.g., Heroku, AWS).
+*   [ ] Deploy frontend to a hosting service (e.g., Netlify, Vercel).

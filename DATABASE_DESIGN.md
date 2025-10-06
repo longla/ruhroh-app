@@ -6,39 +6,38 @@ Based on the application requirements, here is a proposed database schema.
 
 *   **users**
     *   `id` (Primary Key, UUID)
-    *   `username` (varchar, unique)
+    *   `email` (varchar, unique)
     *   `password_hash` (varchar)
-    *   `profile_picture_url` (varchar)
-    *   `bio` (text)
+    *   `role` (enum: `sitter`, `business_owner`)
     *   `created_at` (timestamp)
     *   `updated_at` (timestamp)
 
-*   **friendships**
-    *   `user_id_1` (Foreign Key to users.id)
-    *   `user_id_2` (Foreign Key to users.id)
-    *   `status` (enum: `pending`, `accepted`)
+*   **sitters**
+    *   `user_id` (Foreign Key to users.id, Primary Key)
+    *   `rate` (decimal)
+    *   `discount` (decimal)
+
+*   **pets**
+    *   `id` (Primary Key, UUID)
+    *   `name` (varchar)
+    *   `breed` (varchar)
+    *   `age` (integer)
+    *   `special_needs` (text)
+    *   `owner_name` (varchar)
+    *   `owner_contact` (varchar)
+
+*   **requests**
+    *   `id` (Primary Key, UUID)
+    *   `pet_id` (Foreign Key to pets.id)
+    *   `start_date` (timestamp)
+    *   `end_date` (timestamp)
+    *   `status` (enum: `pending`, `assigned`, `accepted`, `declined`, `completed`)
+    *   `assigned_sitter_id` (Foreign Key to users.id, nullable)
     *   `created_at` (timestamp)
     *   `updated_at` (timestamp)
-    *   Primary Key (`user_id_1`, `user_id_2`)
 
-*   **posts**
-    *   `id` (Primary Key, UUID)
-    *   `user_id` (Foreign Key to users.id)
-    *   `content` (text)
-    *   `media_url` (varchar, optional)
-    *   `created_at` (timestamp)
-    *   `expires_at` (timestamp)
-
-*   **reactions**
-    *   `id` (Primary Key, UUID)
-    *   `post_id` (Foreign Key to posts.id)
-    *   `user_id` (Foreign Key to users.id)
-    *   `emoji` (varchar)
-    *   `created_at` (timestamp)
-    *   Unique Constraint (`post_id`, `user_id`)
-
-*   **crowns**
-    *   `id` (Primary Key, UUID)
-    *   `user_id` (Foreign Key to users.id)
-    *   `week_start_date` (date)
-    *   `created_at` (timestamp)
+*   **request_sitter_assignments**
+    *   `request_id` (Foreign Key to requests.id)
+    *   `sitter_id` (Foreign Key to users.id)
+    *   `status` (enum: `pending`, `accepted`, `declined`)
+    *   Primary Key (`request_id`, `sitter_id`)
